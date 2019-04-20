@@ -94,8 +94,9 @@ We strongly recommend using TypeScript's stricter options for a better experienc
 We'll need to add a `webpack.config.js` to bundle our app.
 
 ```js
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: './src/index.ts',
@@ -104,6 +105,9 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
   module: {
     rules: [
       {
